@@ -1,13 +1,19 @@
 #include "newbootstrapApp.h"
+#include <iostream>
 
+using namespace std;
 int main() {
 	
 	// allocation
 	auto app = new newbootstrapApp();
 
 	// initialise and loop
-	app->run("AIE", 1280, 720, false);
-
+	try {
+		app->run("AIE", 1280, 720, false);
+	}
+	catch (exception e) {
+		cout << "game not working" << endl;
+	}
 	// deallocation
 	delete app;
 
