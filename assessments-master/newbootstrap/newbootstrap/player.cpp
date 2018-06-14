@@ -52,11 +52,11 @@ void player::Update(float deltaTime, aie::Input * input)
 
 	if (bool(input->wasKeyPressed(aie::INPUT_KEY_SPACE)))
 	{
-		playerspeed = playerspeed * 2;
+		playerspeed =  playerspeed * 4;
 	}
 	else if (bool(input->wasKeyReleased(aie::INPUT_KEY_SPACE)))
 	{ 
-		playerspeed = playerspeed / 2;
+		playerspeed = playerspeed / 4;
 	}
 
 	m_rock->Update(deltaTime);
