@@ -1,17 +1,14 @@
 #include "Header.h"
+#include <functional>
 
-using namespace HashFuctions; {
+namespace HashFuctions {
 
-	unsigned int badHash(const char* data, unsigned int length) {
-		unsigned int hash - 0;
+	unsigned int badHash(const char* data, unsigned int length)
+	{
+		unsigned int hash = 0;
 
-		for (unsigned int 1 = 0; i < Length; ++1)
+		for (unsigned int i = 0; i < length; ++i)
 			hash += data[i];
 		return hash;
 	}
-}
-
-unsigned int HashFuctions::badHash(const char * data, unsigned int length)
-{
-	return 0;
 }
