@@ -23,6 +23,6 @@ private:
 	aie::Texture* m_texture;
 	bool bouncex;
 	bool bouncey;
-	float rockspeed = 200.0f;
+	float rockspeed = 210.0f;
 };
 
