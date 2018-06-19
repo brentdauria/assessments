@@ -28,10 +28,10 @@ void rock::Update(float deltaTime)
 	{
 		rockspeed = rockspeed * 1.1;
 		timer = 0.0f;
-		//if (rockspeed == 300)
-		//{
-		//	rockspeed = 290;
-		//}
+		if (rockspeed == 300)
+		{
+			rockspeed = 290;
+		}
 	}
 	if (m_pos.y >= 10 && !bouncey) {
 
