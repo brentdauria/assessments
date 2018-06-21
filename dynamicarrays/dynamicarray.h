@@ -41,14 +41,17 @@ public:
 	}
 
 
-	void Pop()
+	void Pop(t value)
 	{
+		// 1. delete the first element
+		// 2. shift all other elements one to the left
+
 		assert(m_array != NULL);
 		if (m_numOfElements > 0) {
-
+	
 			m_array[m_numOfElements] = value;
-
 			m_numOfElements--;
+			// delete[] m_array;
 		}
 	} 
 
