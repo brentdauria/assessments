@@ -1,6 +1,8 @@
 #include <iostream>
 #include "dynamicarray.h"
+#include <chrono>
 
+using namespace std::chrono;
 
 int main()
 {
@@ -11,7 +13,8 @@ int main()
 	arr.Push('c');
 	arr.Push('d');
 	arr.Push('e');
-	arr.Pop();
+	
+	arr.Pop('a');
 
 	 for (int i = 0; i < 5; ++i)
 	 {
