@@ -15,7 +15,7 @@ int main() {
 
 	// initialise and loop
 	try {
-		app->run("AIE", 1280, 720, false);
+		app->run("Speedy-Rocky", 1280, 720, false);
 	}
 	catch (exception e) {
 		cout << "game not working" << endl;
