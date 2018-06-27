@@ -78,59 +78,16 @@ public:
 
 	void Pop_Back()
 	{
-		// let N be list.last
-
-		// if list.last.prev is not null then
-			// set list.last.prev.next to list.last
-
-		// set list.last to list.last.prev
-		// delete list.last
-		//decrease the size of the list
-	}
+		
 
 	void Push_Back()
 	{
-		// let N be new ListNode
-		// set N.prev to list.last
-		// set N.next to null
-		// set N.value to value
-
-
-		// if list.first is null then
-			//set list.first to N
 		
-		// if list.first is not null then
-			// set list.last.next to N
-
-		// set list.last to N
 
 	}
 
 	void Remove(T val)
 	{
-		// let N be list.first
-		// WHILE N is not a null
-
-			// let temp be N.next
-
-			// IF N.value == val
-
-				// IF N.prev is not null
-					// set n.prev.next to N.next
-
-				// IF N.next is not null
-					// set N.next.prev to N.prev
-
-				// IF N is list.first
-					// set list.first to N.next
-
-				// IF N is list.last
-					// set list.last to N.prev
-
-				// delete N
-
-				// decrease the size of the list
-			// N = temp
 	}
 
 	Iterator<T> Begin() { return Iterator<T>(m_first); }
