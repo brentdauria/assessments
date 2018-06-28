@@ -5,6 +5,11 @@
 #include "player.h"
 #include "rock.h"
 #include <imgui.h>
+#include <stdlib.h>
+#include <Windows.h>
+#include <mmsystem.h>
+#pragma comment(lib, "winmm.lib")
+
 
 
 newbootstrapApp::newbootstrapApp() {
@@ -20,6 +25,7 @@ bool newbootstrapApp::startup() {
 	
 	m_2dRenderer = new aie::Renderer2D();
 	m_timer = 0;
+	PlaySound(TEXT("../bin/Aleksander Vinter - Ism suite.wav"), NULL, SND_FILENAME | SND_ASYNC);
 
 	// TODO: remember to change this when redistributing a build!
 	// the following path would be used instead: "./font/consolas.ttf"
@@ -57,6 +63,8 @@ void newbootstrapApp::update(float deltaTime) {
 	// exit the application
 	if (input->isKeyDown(aie::INPUT_KEY_ESCAPE))
 		quit();
+	if (input->isKeyDown(aie::INPUT_KEY_R))
+		startup();
 }
 
 void newbootstrapApp::draw() {
@@ -85,7 +93,7 @@ void newbootstrapApp::draw() {
 	/*m_rock->Draw(m_2dRenderer);*/
 	// output some text, uses the last used colour
 	m_2dRenderer->drawText(m_font, "Press ESC to quit", 0, 0);
-
+	m_2dRenderer->drawText(m_font, "Press R to Restart", 950, 700);
 	// done drawing sprites
 	m_2dRenderer->end();
 }

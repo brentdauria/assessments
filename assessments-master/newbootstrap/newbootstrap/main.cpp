@@ -8,7 +8,7 @@ using namespace std;
 
 int main() {
 	
-	PlaySound(TEXT("../bin/Aleksander Vinter - Ism suite.wav"), NULL, SND_FILENAME | SND_ASYNC);
+	//PlaySound(TEXT("../bin/Aleksander Vinter - Ism suite.wav"), NULL, SND_FILENAME | SND_ASYNC);
 
 	// allocation
 	auto app = new newbootstrapApp();
