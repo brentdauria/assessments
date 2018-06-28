@@ -52,7 +52,8 @@ void newbootstrapApp::update(float deltaTime) {
 		m_player->Update(deltaTime, input);
 	}
 	//m_rock->Update(deltaTime);
-
+	//if (input->isKeyDown(aie::INPUT_KEY_R))
+		
 	// exit the application
 	if (input->isKeyDown(aie::INPUT_KEY_ESCAPE))
 		quit();

@@ -24,6 +24,7 @@ public:
 	virtual void update(float deltaTime);
 	virtual void draw();
 
+
 protected:
 
 	aie::Renderer2D*	m_2dRenderer;
@@ -33,4 +34,5 @@ protected:
 	enum { ENTITY_COUNT = 10 };
 	Entity m_entities[ENTITY_COUNT];
 	HANDLE fileHandle;
+	HANDLE sizeHandle;
 };

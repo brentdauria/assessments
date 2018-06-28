@@ -20,13 +20,15 @@ bool EntityEditorApp::startup() {
 	
 	setBackgroundColour(1, 1, 1);
 
-	fileHandle = CreateFileMapping(INVALID_HANDLE_VALUE, nullptr, PAGE READWRITE, 0, sizeof(Entity), L"MySharedMemory");
+	fileHandle = CreateFileMapping(INVALID_HANDLE_VALUE, nullptr, PAGE_READWRITE, 0, sizeof(Entity) * ENTITY_COUNT, L"MySharedMemory");
+	sizeHandle = CreateFileMapping(INVALID_HANDLE_VALUE, nullptr, PAGE_READWRITE, 0, sizeof(int), L"EntityCount");
 
 	return true;
 }
 
 void EntityEditorApp::shutdown() {
-
+	CloseHandle(fileHandle);
+	CloseHandle(sizeHandle);
 	delete m_font;
 	delete m_2dRenderer;
 }
@@ -39,6 +41,16 @@ void EntityEditorApp::update(float deltaTime) {
 	// exit the application
 	if (input->isKeyDown(aie::INPUT_KEY_ESCAPE))
 		quit();
+
+	int* sizeData = (int*)MapViewOfFile(sizeHandle, FILE_MAP_ALL_ACCESS, 0, 0, sizeof(int));
+	*sizeData = ENTITY_COUNT;
+	UnmapViewOfFile(sizeData);
+
+	Entity* data = (Entity*)MapViewOfFile(fileHandle, FILE_MAP_ALL_ACCESS, 0, 0, sizeof(Entity) * ENTITY_COUNT);
+	memcpy(data, m_entities, sizeof(Entity)* ENTITY_COUNT);
+	UnmapViewOfFile(data);
+
+
 
 	// select an entity to edit
 	static int selection = 0;
