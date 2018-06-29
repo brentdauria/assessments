@@ -14,7 +14,7 @@ int main()
 	arr.Push('d');
 	arr.Push('e');
 	
-	arr.Pop('a');
+	//arr.Pop('e');
 
 	 for (int i = 0; i < 5; ++i)
 	 {

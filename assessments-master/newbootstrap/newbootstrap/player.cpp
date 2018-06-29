@@ -10,10 +10,11 @@ player::player()
 	
 }
 
-player::player(glm::vec2 pos)
+player::player(glm::vec2 pos) :
+	m_pos(glm::vec2(0,0))
 {
 	m_texture = new aie::Texture("../bin/textures/ship.png");
-	m_pos = pos;
+	m_tarPos = pos;
 	m_rock = new rock(glm::vec2(1000, 600));
 	isGameOver();
 }
@@ -26,28 +27,28 @@ player::~player()
 
 void player::Update(float deltaTime, aie::Input * input)
 {
-	if ((input->isKeyDown(aie::INPUT_KEY_LEFT) || input->isKeyDown(aie::INPUT_KEY_A)) && m_pos.x >= 50)
+	if ((input->isKeyDown(aie::INPUT_KEY_LEFT) || input->isKeyDown(aie::INPUT_KEY_A)) && m_tarPos.x >= 50)
 	{
 		//sets player speed in the left direction
-		m_pos.x -= playerspeed * deltaTime;
+		m_tarPos.x -= playerspeed * deltaTime;
 	}
 
-	if ((input->isKeyDown(aie::INPUT_KEY_RIGHT) || input->isKeyDown(aie::INPUT_KEY_D)) && m_pos.x <= 1230)
+	if ((input->isKeyDown(aie::INPUT_KEY_RIGHT) || input->isKeyDown(aie::INPUT_KEY_D)) && m_tarPos.x <= 1230)
 	{
 		//sets player speed in the right direction
-		m_pos.x += playerspeed * deltaTime;
+		m_tarPos.x += playerspeed * deltaTime;
 	}
 
-	if ((input->isKeyDown(aie::INPUT_KEY_UP) || input->isKeyDown(aie::INPUT_KEY_W)) && m_pos.y <= 650)
+	if ((input->isKeyDown(aie::INPUT_KEY_UP) || input->isKeyDown(aie::INPUT_KEY_W)) && m_tarPos.y <= 650)
 	{
 		//sets player speed in the up direction
-		m_pos.y += playerspeed * deltaTime;
+		m_tarPos.y += playerspeed * deltaTime;
 	}
 
-	if ((input->isKeyDown(aie::INPUT_KEY_DOWN) || input->isKeyDown(aie::INPUT_KEY_S)) && m_pos.y >= 50)
+	if ((input->isKeyDown(aie::INPUT_KEY_DOWN) || input->isKeyDown(aie::INPUT_KEY_S)) && m_tarPos.y >= 50)
 	{
 		//sets player speed in the down direction
-		m_pos.y -= playerspeed * deltaTime;
+		m_tarPos.y -= playerspeed * deltaTime;
 	}
 
 	if (bool(input->wasKeyPressed(aie::INPUT_KEY_SPACE)))
@@ -58,6 +59,12 @@ void player::Update(float deltaTime, aie::Input * input)
 	{ 
 		playerspeed = playerspeed / 4;
 	}
+
+
+	//Add lerp
+	static float lerpAmount = 0.5f;
+	m_pos += m_tarPos * lerpAmount * deltaTime;
+
 
 	m_rock->Update(deltaTime);
 
