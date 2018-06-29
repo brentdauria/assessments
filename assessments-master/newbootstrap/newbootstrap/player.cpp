@@ -62,8 +62,8 @@ void player::Update(float deltaTime, aie::Input * input)
 
 
 	//Add lerp
-	static float lerpAmount = 0.5f;
-	m_pos += m_tarPos * lerpAmount * deltaTime;
+	static float lerpAmount = 0.3f;
+	m_pos -= (m_pos - m_tarPos) * lerpAmount * deltaTime;
 
 
 	m_rock->Update(deltaTime);

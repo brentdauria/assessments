@@ -27,7 +27,7 @@ private:
 	glm::vec2	m_pos;
 	glm::vec2	m_tarPos;
 	aie::Texture* m_texture;
-	float playerspeed = 320.0f;
+	float playerspeed = 1000.0f;
 	rock* m_rock;
 	float distanceX = 0.0f;
 	float distanceY = 0.0f;
