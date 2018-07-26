@@ -5,8 +5,12 @@ class LinkedList
 {
 public:
 
+	Iterator<T> Begin() { return Iterator<T>(m_first); }
+	Iterator<T> End() { return Iterator<T>(); }
+
 	LinkedList() : m_elements(0), m_first(nullptr), m_last(nullptr)
 	{
+	
 	}
 
 	LinkedList(int startingElements) : m_elements(startingElements)
@@ -31,7 +35,7 @@ public:
 
 	}
 
-	~LinkedList() 
+	~LinkedList()
 	{
 		while (m_first != nullptr)
 		{
@@ -49,16 +53,16 @@ public:
 		n->value = val;
 		//if list.last is null then
 		if (m_last == nullptr)
+		{
 			// set list.last to N
 			m_last = n;
-
+		}
 		else
+		{ 
 			m_first->prev = n;
-
-		m_first = n;
-
-		m_elements++;
-	}
+			m_first = n;
+			m_elements++;
+		}
 
 	void Pop_Front()
 	{
@@ -76,30 +80,12 @@ public:
 		m_elements--;
 	}
 
-	void Pop_Back()
-	{
-		
-
-	void Push_Back()
-	{
-		
-
-	}
-
-	void Remove(T val)
-	{
-	}
-
-	Iterator<T> Begin() { return Iterator<T>(m_first); }
-	Iterator<T> End() { return Iterator<T>(); }
-
-	void Insert(Iterator<T> itr, int value)
-	{
-		ListNode<T>* n = itr.m_node;
-	}
-
+		void Insert(Iterator<T> itr, int value)
+		{
+			ListNode<T>* n = itr.m_node;
+		}
 private:
-	int m_elements;
-	ListNode<T>* m_first;
-	ListNode<T>* m_last;
+		int m_elements;
+		ListNode<T>* m_first;
+		ListNode<T>* m_last;
 };

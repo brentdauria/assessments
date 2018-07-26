@@ -5,7 +5,7 @@ int main()
 	LinkedList <int> lnkedList;
 	lnkedList.Push_Front(20);
 	lnkedList.Push_Front(30);
-	lnkedList.Pop_Back();
+	//lnkedList.Pop_Back();
 
 	Iterator<int> itr = lnkedList.Begin();
 

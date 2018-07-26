@@ -22,36 +22,50 @@ public:
 	void Push(t value)
 	{
 		assert(m_array != NULL);
-
 		int i = 0;
-
 		for (i = 0; i < m_numOfElements; ++i)
 		{
 			if (m_array[i] > value)
 				break;
 		}
-
 		for (int j = m_numOfElements; j > i; --j)
 		{
 			m_array[j] = m_array[j - 1];
 		}
-
 		m_array[i] = value;
 		m_numOfElements++;
 	}
 
+	//void remove(int index)
+	//{
+	//	assert(m_array != NULL);
+	//	if(index > sizeof(m_array)
+	//	{
+	//		return;
+	//	}
+	//	if(m_numOfElements)
+	//
+	//}
 
-	void Pop(t value)
+//	void sort()
+//	{
+//		assert(m_array != NULL)
+//		temp = 0;
+//		int i = 0;
+//		for (int )
+//
+//
+//	}
+
+	void Pop()
 	{
-		// 1. delete the first element
-		// 2. shift all other elements one to the left
-
+		int i = 0;
 		assert(m_array != NULL);
 		if (m_numOfElements > 0) {
 	
-			m_array[m_numOfElements] = value;
+			m_array[m_numOfElements] = val;
 			m_numOfElements--;
-			// delete[] m_array;
+			// delete[i] m_array;
 		}
 	} 
 
