@@ -10,14 +10,15 @@ public:
 		m_maxSize = size;
 		m_array = new t[m_maxSize];
 		m_growSize = ((growBy >= 1) ? growBy : 0);
+	
 	}
 	~dynamicarray()
 	{
-		if (m_array != NULL)
-		{
-			delete[] m_array;
-			m_array = nullptr;
-		}
+		//if (m_array != nullptr)
+		//{
+		//	delete[ m_array;
+		//	m_array = nullptr;
+		//}
 	}
 
 	void Push(t value)
@@ -148,6 +149,7 @@ public:
 	}
 
 private:
+	int temp = 0;
 	t* m_array; 
 	int m_maxSize;
 	int m_numOfElements;

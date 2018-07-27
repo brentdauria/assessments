@@ -13,16 +13,25 @@ int main()
 	arr.Push('c');
 	arr.Push('d');
 	arr.Push('e');
-	
 
-	//arr.getsize(); 
-	arr.search('c');
+	dynamicarray<int> arr1(1);
 	
+	arr1.Push(10);
+	arr1.Push(2);
+	arr1.Push(45);
+	arr1.Push(10);
+	arr1.Push(1);
+	arr1.Push(6);
+
+	// arr1.getsize(); 
+	arr1.sort();
+
+
 	std::cin.get();
 
 	 for (int i = 0; i < 5; ++i)
 	 {
-	 	std::cout << arr[i] << std::endl;
+	 	std::cout << arr1[i] << std::endl;
 	 }
 
 	std::cin.get();

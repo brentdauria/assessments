@@ -56,7 +56,6 @@ public:
 
 
 
-
 	void Push_Front(T val)
 	{
 		ListNode<T>* n = new ListNode<T>();
