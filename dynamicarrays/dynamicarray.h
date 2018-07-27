@@ -19,6 +19,7 @@ public:
 			m_array = nullptr;
 		}
 	}
+
 	void Push(t value)
 	{
 		assert(m_array != NULL);
@@ -36,38 +37,78 @@ public:
 		m_numOfElements++;
 	}
 
-	//void remove(int index)
-	//{
-	//	assert(m_array != NULL);
-	//	if(index > sizeof(m_array)
-	//	{
-	//		return;
-	//	}
-	//	if(m_numOfElements)
-	//
-	//}
+	void resize()
+	{
+		assert(m_array != NULL);
+		m_array = new t [m_maxSize = m_growSize];
+		memccpy(temp, m_array, sizeof(t) * m_numOfElements);
+		delete[] m_array;
 
-//	void sort()
-//	{
-//		assert(m_array != NULL)
-//		temp = 0;
-//		int i = 0;
-//		for (int )
-//
-//
-//	}
+		m_array = temp;
+		m_maxSize += m_growSize;
+	}
+
+	void remove(int index)
+	{
+		assert(m_array != NULL);
+		if(index > sizeof(m_array))
+		{
+			return;
+		}
+		if (m_numOfElements > sizeof(m_array))
+		{
+			resize();
+		}
+		m_array--;
+		if (m_numOfElements > sizeof(m_array))
+		{
+			m_numOfElements = sizeof(m_array) - 1;
+		}
+	}
+
+	void sort()
+	{
+		assert(m_array != NULL);
+		temp = 0;
+		int i = 0;
+		for (int i = 0; i <= m_numOfElements - 1; i++);
+		{
+			if (m_array[i] > (m_array[i + 1]))
+			{
+				temp = m_array[i + 1];
+				m_array[i + 1] = m_array[i];
+				m_array[i] = temp;
+			}
+		}
+	}
 
 	void Pop()
 	{
-		int i = 0;
 		assert(m_array != NULL);
 		if (m_numOfElements > 0) {
-	
-			m_array[m_numOfElements] = val;
 			m_numOfElements--;
-			// delete[i] m_array;
 		}
 	} 
+
+	void insert(int index, t val)
+	{
+		assert(m_array != NULL);
+		if (index >= m_maxSize)
+		{
+			return;
+		}
+		if (m_numOfElements >= m_maxSize)
+		{
+			resize();
+		}
+		for (int i = m_numOfElements; i > index; --i)
+		{
+			m_array[i] = m_array[i - 1];
+		}
+		m_array[index] = val;
+		m_numOfElements++;
+	}
+
 
 	virtual t& operator [] (const int & index)
 	{
@@ -75,6 +116,35 @@ public:
 		return m_array[index];
 	}
 	
+	void clear()
+	{
+		m_numOfElements = 0;
+	}
+
+	int getsize()
+	{
+		return m_numOfElements;
+	}
+
+	void search(t val)
+	{
+		bool searchvalue = true;
+		assert(m_array != NULL);
+		while (searchvalue)
+		{
+			for (int i = 0; 1 <= m_numOfElements; ++1)
+			{
+				if (m_array[i] == val)
+				{
+					std::cout << "got the number" << m_array[i] << std::endl;
+					searchvalue = false;
+				}
+				else {
+					std::cout << "couldnt find the value" << std::endl;
+				}
+			}
+		}
+	}
 
 private:
 	t* m_array; 
