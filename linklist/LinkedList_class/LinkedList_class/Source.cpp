@@ -3,9 +3,11 @@
 int main()
 {
 	LinkedList <int> lnkedList;
+	
 	lnkedList.Push_Front(20);
 	lnkedList.Push_Front(30);
-	//lnkedList.Pop_Back();
+	std::cin.get();
+	lnkedList.PopBack();
 
 	Iterator<int> itr = lnkedList.Begin();
 

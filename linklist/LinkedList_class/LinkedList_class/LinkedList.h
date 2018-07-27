@@ -4,13 +4,20 @@ template <class T>
 class LinkedList
 {
 public:
-
-	Iterator<T> Begin() { return Iterator<T>(m_first); }
-	Iterator<T> End() { return Iterator<T>(); }
-
-	LinkedList() : m_elements(0), m_first(nullptr), m_last(nullptr)
+	Iterator<T> Begin() { return Iterator<T>(m_firstnode); }
+	Iterator<T> End() { return Iterator<T>(m_lastnode); }
+	~LinkedList()
 	{
-	
+		while (m_firstnode != nullptr)
+		{
+			auto* temp = m_firstnode->next;
+			// delete m_firstnode;
+			m_firstnode = temp;
+		}
+	}
+	LinkedList() : m_elements(0), m_firstnode(nullptr), m_lastnode(nullptr)
+	{
+
 	}
 
 	LinkedList(int startingElements) : m_elements(startingElements)
@@ -27,58 +34,86 @@ public:
 			node->value = 0;
 			// make the first item point back to the new first
 			if (m_first != nullptr)
-				m_first->prev = node;
+				m_firstnode->prev = node;
 			// new node will be the first item
-			m_first = node;
+			m_firstnode = node;
 
 		}
 
 	}
 
-	~LinkedList()
+	bool empty()
 	{
-		while (m_first != nullptr)
+		if (m_elements <= 0)
 		{
-			auto* temp = m_first->next;
-			delete m_first;
-			m_first = temp;
+			return true;
+		}
+		else
+		{
+			return false;
 		}
 	}
+
+
+
 
 	void Push_Front(T val)
 	{
 		ListNode<T>* n = new ListNode<T>();
-		n->next = m_first;
-		n->prev = nullptr;
 		n->value = val;
+		m_firstnode = n->next;
+		n->prev = nullptr;
 		//if list.last is null then
-		if (m_last == nullptr)
+		if (m_lastnode == nullptr)
 		{
 			// set list.last to N
-			m_last = n;
+			m_lastnode = n;
+	
 		}
 		else
-		{ 
-			m_first->prev = n;
-			m_first = n;
+		{
+			m_firstnode->prev = n;
+			m_firstnode = n;
 			m_elements++;
 		}
-
-	void Pop_Front()
-	{
-		// let N be list.first
-		ListNode<T>* n = m_first;
-
-		// if list.first.next is not null then
-		if (m_first->next != NULL)
-			// set list.first.next.previous to list.first.previous
-			m_first->next->prev = m_first->prev;
-		// set list.first to list.first.next
-		m_first = m_first->next;
-		// delete n
-		delete n;
-		m_elements--;
 	}
+	
+
+
+	void pushBack(T val)
+	{
+		ListNode<T>* n = new ListNode<T>();
+		n->prev = m_lastnode;
+		n->next = nullptr;
+		n->Value = Val;
+
+		if (m_firstnode == NULL)
+		{
+			m_firstnode = n;
+		}
+	
+		else if (m_lastnode != NULL)
+		{
+			m_lastnode->next = n;
+		}
+		{
+			m_lastnode = n;
+			m_elements++;
+		}
+	}
+
+	void PopBack()
+	{
+		ListNode<T>* node = new ListNode<T>();
+		if (m_lastnode->prev != NULL)
+		{
+			m_lastnode->prev->next = m_lastnode->next; 
+			m_lastnode = m_lastnode->prev;
+			delete node;
+			m_elements--;
+		}
+	}
+
 
 		void Insert(Iterator<T> itr, int value)
 		{
@@ -86,6 +121,6 @@ public:
 		}
 private:
 		int m_elements;
-		ListNode<T>* m_first;
-		ListNode<T>* m_last;
+		ListNode<T>* m_firstnode;
+		ListNode<T>* m_lastnode;
 };

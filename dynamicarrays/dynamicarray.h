@@ -123,6 +123,7 @@ public:
 
 	int getsize()
 	{
+		std::cout << m_numOfElements << std::endl;
 		return m_numOfElements;
 	}
 
@@ -132,11 +133,11 @@ public:
 		assert(m_array != NULL);
 		while (searchvalue)
 		{
-			for (int i = 0; 1 <= m_numOfElements; ++1)
+			for (int i = 0; i <= m_numOfElements; ++i)
 			{
 				if (m_array[i] == val)
 				{
-					std::cout << "got the number" << m_array[i] << std::endl;
+					std::cout << "found the value " << m_array[i] << std::endl;
 					searchvalue = false;
 				}
 				else {

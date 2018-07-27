@@ -15,6 +15,10 @@ int main()
 	arr.Push('e');
 	
 
+	//arr.getsize(); 
+	arr.search('c');
+	
+	std::cin.get();
 
 	 for (int i = 0; i < 5; ++i)
 	 {
