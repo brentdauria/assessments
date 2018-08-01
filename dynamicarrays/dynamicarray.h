@@ -14,17 +14,21 @@ public:
 	}
 	~dynamicarray()
 	{
-		//if (m_array != nullptr)
-		//{
-		//	delete[ m_array;
-		//	m_array = nullptr;
-		//}
+		if (m_array != nullptr)
+		{
+			delete[] m_array;
+			m_array = nullptr;
+		}
 	}
 
 	void Push(t value)
 	{
 		assert(m_array != NULL);
 		int i = 0;
+		if (m_numOfElements > m_maxSize)
+		{
+			resize();
+		}
 		for (i = 0; i < m_numOfElements; ++i)
 		{
 			if (m_array[i] > value)
@@ -41,8 +45,8 @@ public:
 	void resize()
 	{
 		assert(m_array != NULL);
-		m_array = new t [m_maxSize = m_growSize];
-		memccpy(temp, m_array, sizeof(t) * m_numOfElements);
+		t* temp = new t [m_maxSize + m_growSize];
+		memcpy(temp, m_array, sizeof(t) * m_numOfElements);
 		delete[] m_array;
 
 		m_array = temp;
@@ -70,7 +74,7 @@ public:
 	void sort()
 	{
 		assert(m_array != NULL);
-		temp = 0;
+		int temp = 0;
 		int i = 0;
 		for (int i = 0; i <= m_numOfElements - 1; i++);
 		{
@@ -149,7 +153,6 @@ public:
 	}
 
 private:
-	int temp = 0;
 	t* m_array; 
 	int m_maxSize;
 	int m_numOfElements;
