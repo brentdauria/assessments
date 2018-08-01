@@ -25,7 +25,7 @@ public:
 	{
 		assert(m_array != NULL);
 		int i = 0;
-		if (m_numOfElements > m_maxSize)
+		if (m_numOfElements >= m_maxSize)
 		{
 			resize();
 		}
@@ -45,8 +45,9 @@ public:
 	void resize()
 	{
 		assert(m_array != NULL);
-		t* temp = new t [m_maxSize + m_growSize];
+		auto temp = new t [m_maxSize + m_growSize];
 		memcpy(temp, m_array, sizeof(t) * m_numOfElements);
+		
 		delete[] m_array;
 
 		m_array = temp;

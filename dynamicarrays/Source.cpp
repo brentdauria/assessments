@@ -29,7 +29,7 @@ int main()
 
 	//std::cin.get();
 
-	 for (int i = 0; i < 5; ++i)
+	 for (int i = 0; i < 6; ++i)
 	 {
 	 	std::cout << arr1[i] << std::endl;
 	 }
