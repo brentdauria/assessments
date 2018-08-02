@@ -4,7 +4,7 @@ template <class T>
 class Iterator
 {
 public:
-	Iterator() 
+	Iterator()
 	{
 
 	}
@@ -40,7 +40,7 @@ public:
 
 	T Get() { return m_node->value; }
 
-	~Iterator() 
+	~Iterator()
 	{
 		delete m_node;
 	}

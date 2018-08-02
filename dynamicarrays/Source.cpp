@@ -25,6 +25,7 @@ int main()
 
 	// arr1.getsize(); 
 	//arr1.sort();
+	arr1.search(2);
 
 
 	//std::cin.get();

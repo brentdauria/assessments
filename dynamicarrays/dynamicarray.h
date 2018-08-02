@@ -146,9 +146,6 @@ public:
 					std::cout << "found the value " << m_array[i] << std::endl;
 					searchvalue = false;
 				}
-				else {
-					std::cout << "couldnt find the value" << std::endl;
-				}
 			}
 		}
 	}

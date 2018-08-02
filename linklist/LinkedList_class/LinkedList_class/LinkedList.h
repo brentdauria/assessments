@@ -5,13 +5,14 @@ class LinkedList
 {
 public:
 	Iterator<T> Begin() { return Iterator<T>(m_firstnode); }
-	Iterator<T> End() { return Iterator<T>(m_lastnode); }
+	Iterator<T> End() { return Iterator<T>(); }
+
 	~LinkedList()
 	{
 		while (m_firstnode != nullptr)
 		{
 			auto* temp = m_firstnode->next;
-			// delete m_firstnode;
+			delete m_firstnode;
 			m_firstnode = temp;
 		}
 	}
@@ -42,6 +43,8 @@ public:
 
 	}
 
+
+
 	bool empty()
 	{
 		if (m_elements <= 0)
@@ -60,7 +63,10 @@ public:
 	{
 		ListNode<T>* n = new ListNode<T>();
 		n->value = val;
+
+		if(n->next)
 		m_firstnode = n->next;
+
 		n->prev = nullptr;
 		//if list.last is null then
 		if (m_lastnode == nullptr)
@@ -71,10 +77,12 @@ public:
 		}
 		else
 		{
+			if(m_firstnode)
 			m_firstnode->prev = n;
+
 			m_firstnode = n;
-			m_elements++;
 		}
+		m_elements++;
 	}
 	
 
@@ -95,10 +103,41 @@ public:
 		{
 			m_lastnode->next = n;
 		}
-		{
+		
 			m_lastnode = n;
 			m_elements++;
+	}
+
+	void clear()	//Remove all elements from the list
+	{
+		//Delete all and reset
+		while (m_first != nullptr)
+		{
+			auto* temp = m_firstnode->next;
+			delete m_first;
+			m_first = temp;
 		}
+		m_nodeCount = 0;
+	}
+	
+	void insert_back(const T& value)
+	{
+		ListNode<T> * n = new ListNode<T>();
+		n->value = value;
+
+		n->prev = m_lastnode;
+		n->next = nullptr;
+
+	
+		if (m_firstnode == nullptr) {
+			m_firstnode = n;
+		}
+
+		if (m_lastnode != nullptr) {
+			m_lastnode->next = n;
+		}
+		m_lastnode = n;
+		m_elements++;
 	}
 
 	void PopBack()
