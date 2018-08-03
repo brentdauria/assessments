@@ -43,6 +43,10 @@ public:
 
 	}
 
+	void count()
+	{
+		std::cout << "There is " << m_elements << " Elements" << std::endl;
+	}
 
 
 	bool empty()
@@ -57,30 +61,36 @@ public:
 		}
 	}
 
+	ListNode<T>* nodefirst()
+	{
+		return m_firstnode;
+	}
 
+	ListNode<T>* nodelast()
+	{
+		return m_lastnode;
+	}
 
-	void Push_Front(T val)
+	void PushFront(T val)
 	{
 		ListNode<T>* n = new ListNode<T>();
 		n->value = val;
 
-		if(n->next)
-		m_firstnode = n->next;
+		if(m_firstnode == nullptr)
+			m_firstnode = n;
 
-		n->prev = nullptr;
 		//if list.last is null then
 		if (m_lastnode == nullptr)
 		{
 			// set list.last to N
 			m_lastnode = n;
-	
 		}
-		else
+		if (!empty())
 		{
-			if(m_firstnode)
-			m_firstnode->prev = n;
-
+			ListNode<T>* prevNode = m_firstnode;
 			m_firstnode = n;
+			m_firstnode->next = prevNode;
+			prevNode->prev = m_firstnode;
 		}
 		m_elements++;
 	}
@@ -92,53 +102,32 @@ public:
 		ListNode<T>* n = new ListNode<T>();
 		n->prev = m_lastnode;
 		n->next = nullptr;
-		n->Value = Val;
+		n->value = val;
 
 		if (m_firstnode == NULL)
 		{
 			m_firstnode = n;
 		}
-	
 		else if (m_lastnode != NULL)
 		{
-			m_lastnode->next = n;
-		}
-		
-			m_lastnode = n;
-			m_elements++;
-	}
-
-	void clear()	//Remove all elements from the list
-	{
-		//Delete all and reset
-		while (m_first != nullptr)
-		{
-			auto* temp = m_firstnode->next;
-			delete m_first;
-			m_first = temp;
-		}
-		m_nodeCount = 0;
-	}
-	
-	void insert_back(const T& value)
-	{
-		ListNode<T> * n = new ListNode<T>();
-		n->value = value;
-
-		n->prev = m_lastnode;
-		n->next = nullptr;
-
-	
-		if (m_firstnode == nullptr) {
-			m_firstnode = n;
-		}
-
-		if (m_lastnode != nullptr) {
 			m_lastnode->next = n;
 		}
 		m_lastnode = n;
 		m_elements++;
 	}
+
+	void clear()	//Remove all elements from the list
+	{
+		
+		while (m_firstnode != nullptr)
+		{
+			auto* temp = m_firstnode->next;
+			delete m_firstnode;
+			m_firstnode = temp;
+		}
+		m_elements = 0;
+	}
+	
 
 	void PopBack()
 	{
@@ -152,13 +141,25 @@ public:
 		}
 	}
 
-
-		void Insert(Iterator<T> itr, int value)
+	void PopFront()
+	{
+		if (m_firstnode != nullptr)	
 		{
-			ListNode<T>* n = itr.m_node;
+			ListNode<T>* temp = m_firstnode;
+			m_firstnode->next->prev = m_firstnode->prev;
+			m_firstnode = m_firstnode->next;
+			delete temp;
+			m_elements--;
 		}
+	}
+
+	void Insert(Iterator<T> itr, int value)
+	{
+		ListNode<T>* n = itr.m_node;
+	}
+
 private:
-		int m_elements;
-		ListNode<T>* m_firstnode;
-		ListNode<T>* m_lastnode;
+	int m_elements;
+	ListNode<T>* m_firstnode;
+	ListNode<T>* m_lastnode;
 };

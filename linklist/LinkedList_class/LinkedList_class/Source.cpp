@@ -5,19 +5,25 @@ int main()
 	LinkedList <int> lnkedList;
 	
 	
-	lnkedList.Push_Front(20);
-	lnkedList.Push_Front(30);
+	lnkedList.PushFront(20); 
+	lnkedList.PushFront(30);
+	lnkedList.pushBack(400);
+	lnkedList.PushFront(32);
+	lnkedList.count();
+ 	std::cout << lnkedList.nodefirst()->value << std::endl;
+	std::cout << lnkedList.nodelast()->value << std::endl;
 	//std::cin.get();
+	//lnkedList.PopFront();
+	//lnkedList.empty();
 	//lnkedList.PopBack();
-	//lin
-	//Iterator<int> itr = lnkedList.Begin();
+	// lnkedList.clear();
 
-	for (Iterator<int> i = lnkedList.Begin(); i != lnkedList.End(); ++i)
+	Iterator<int> itr(lnkedList.Begin());
+
+	for (; itr != lnkedList.End(); ++itr)
 	{
-		std::cout << *i << std::endl;
+		std::cout << *itr << std::endl;
 	}
-	//lnkedList.
 	std::cin.get();
 	return 0;
-	
 }

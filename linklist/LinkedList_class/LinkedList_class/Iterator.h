@@ -42,7 +42,7 @@ public:
 
 	~Iterator()
 	{
-		delete m_node;
+		//delete m_node;
 	}
 private:
 	ListNode<T>* m_node = nullptr;
