@@ -14,8 +14,9 @@ namespace net_containers
             foreach(int index in array)
             {
                 Console.WriteLine(array[index]);
+
             }
-           
+            
         }
 
     }
