@@ -10,6 +10,8 @@ namespace net_containers
     {
         static void Main(string[] args)
         {
+            Console.WriteLine();
+
         }
     }
 }
