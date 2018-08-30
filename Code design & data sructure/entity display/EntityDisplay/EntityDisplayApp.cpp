@@ -12,7 +12,7 @@ EntityDisplayApp::~EntityDisplayApp() {
 }
 
 bool EntityDisplayApp::startup() {
-	
+	//the start up opens & sets the visuals
 	m_2dRenderer = new aie::Renderer2D();
 	m_font = new aie::Font("./font/consolas.ttf", 32);
 
@@ -24,7 +24,7 @@ bool EntityDisplayApp::startup() {
 
 	return true;
 }
-
+//the shutdown closes the files its opened and reading and deletes                                                                                                                                                           
 void EntityDisplayApp::shutdown() {
 	CloseHandle(fileHandle);
 	CloseHandle(sizeHandle);
@@ -32,7 +32,7 @@ void EntityDisplayApp::shutdown() {
 	delete m_2dRenderer;
 	
 }
-
+// the update acts like a constant refresher and updates all the values updating what we see on the display
 void EntityDisplayApp::update(float deltaTime) {
 
 	// input example
@@ -46,7 +46,7 @@ void EntityDisplayApp::update(float deltaTime) {
 	m_entities.clear();
 
 
-
+	// loop contues to run as long as there are changes
 	Entity* data = (Entity*)MapViewOfFile(fileHandle, FILE_MAP_ALL_ACCESS, 0, 0, sizeof(Entity)* entryCount);
 	for (int i = 0; i < entryCount; ++i) {
 		m_entities.push_back(data[i]);

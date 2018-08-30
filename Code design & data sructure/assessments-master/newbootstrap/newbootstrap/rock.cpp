@@ -20,9 +20,10 @@ rock::rock(glm::vec2 pos)
 	m_texture = new aie::Texture("../bin/textures/rock_large.png");
 	m_pos = pos;
 }
-
+// update constantly refreshes
 void rock::Update(float deltaTime)
 {
+	// the rock speed changes every second, timesing the speed buy 1.1
 	timer += deltaTime;
 	if (timer >= 1.0f)
 	{
@@ -33,6 +34,7 @@ void rock::Update(float deltaTime)
 		// 	rockspeed = 290;
 		// }
 	}
+	// the code underneath creates
 	if (m_pos.y >= 10 && !bouncey) {
 
 	m_pos.y -= rockspeed * deltaTime;

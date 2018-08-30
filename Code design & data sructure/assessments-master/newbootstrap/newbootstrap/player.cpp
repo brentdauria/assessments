@@ -9,7 +9,7 @@ player::player()
 {
 	
 }
-
+//importing  textures and assigning startup positions
 player::player(glm::vec2 pos) :
 	m_pos(glm::vec2(0,0))
 {
@@ -52,16 +52,17 @@ void player::Update(float deltaTime, aie::Input * input)
 	}
 
 	if (bool(input->wasKeyPressed(aie::INPUT_KEY_SPACE)))
-	{
+	{// adds like a boost like feature changing the players speed
 		playerspeed =  playerspeed * 4;
 	}
 	else if (bool(input->wasKeyReleased(aie::INPUT_KEY_SPACE)))
 	{ 
+		// resets the players speed when the key is released
 		playerspeed = playerspeed / 4;
 	}
 
 
-	//Add lerp
+	//adding a lerp gives the user a velocity like feel to flying the ship
 	static float lerpAmount = 0.3f;
 	m_pos -= (m_pos - m_tarPos) * lerpAmount * deltaTime;
 
@@ -78,7 +79,7 @@ void player::Draw(aie::Renderer2D * spritebatch)
 	spritebatch->drawSprite(m_texture, m_pos.x, m_pos.y);
 	m_rock->Draw(spritebatch);
 }
-
+//is game over checks if the postition of the player and rock are the same if so than the have colided
 bool player::isGameOver()
 {
 	distanceX = m_pos.x - m_rock->m_pos.x;

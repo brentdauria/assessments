@@ -3,7 +3,7 @@
 #include "Application.h"
 #include "Renderer2D.h"
 #include <vector>
-
+// defined the variables of objects displayed in the display
 struct Entity {
 	float x = 0, y = 0;
 	float rotation = 0;

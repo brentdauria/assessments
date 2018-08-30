@@ -46,7 +46,7 @@
             // pictureBox1
             // 
             this.pictureBox1.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.pictureBox1.Location = new System.Drawing.Point(452, 12);
+            this.pictureBox1.Location = new System.Drawing.Point(452, 10);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(628, 467);
             this.pictureBox1.TabIndex = 0;
@@ -65,13 +65,14 @@
             // 
             // button2
             // 
+            this.button2.AccessibleName = "load";
             this.button2.Location = new System.Drawing.Point(120, 31);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 23);
             this.button2.TabIndex = 2;
             this.button2.Text = "Load";
             this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.button2.Click += new System.EventHandler(this.Button2_Click);
             // 
             // button3
             // 

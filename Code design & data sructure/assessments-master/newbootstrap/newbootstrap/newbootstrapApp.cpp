@@ -25,7 +25,8 @@ bool newbootstrapApp::startup() {
 	
 	m_2dRenderer = new aie::Renderer2D();
 	m_timer = 0;
-	PlaySound(TEXT("../bin/Aleksander Vinter - Ism suite.wav"), NULL, SND_FILENAME | SND_ASYNC);
+// imports .wav file to play, had to move from the main due to when using the restart aspect in the update it calls the startup not the main
+	PlaySound(TEXT("../bin/Aleksander Vinter - Ism suite.wav"), NULL, SND_FILENAME | SND_ASYNC);  
 
 	// TODO: remember to change this when redistributing a build!
 	// the following path would be used instead: "./font/consolas.ttf"
@@ -63,6 +64,7 @@ void newbootstrapApp::update(float deltaTime) {
 	// exit the application
 	if (input->isKeyDown(aie::INPUT_KEY_ESCAPE))
 		quit();
+	//restarts the aplication
 	if (input->isKeyDown(aie::INPUT_KEY_R))
 		startup();
 }
@@ -78,11 +80,11 @@ void newbootstrapApp::draw() {
 	// draw your stuff here!
 	if (!m_player->isGameOver())
 	{
-		ImGui::Begin("timer");
+		ImGui::Begin("timer");//prints timer value and visuals
 		ImGui::Text("timer: (%1.1f)", m_timer);
 		ImGui::End();
 	}
-	if (m_player->isGameOver()) {
+	if (m_player->isGameOver()) { // prints time the player lasted and ending game message
 		m_2dRenderer->drawText(m_font, "YOU LASTED!", 500, 400);
 		ImGui::Text("time: (%1.1f)", m_timer);
 	}
@@ -91,7 +93,7 @@ void newbootstrapApp::draw() {
 		m_player->Draw(m_2dRenderer);
 	}
 	/*m_rock->Draw(m_2dRenderer);*/
-	// output some text, uses the last used colour
+	// draws messages left on the screen
 	m_2dRenderer->drawText(m_font, "Press ESC to quit", 0, 0);
 	m_2dRenderer->drawText(m_font, "Press R to Restart", 950, 700);
 	// done drawing sprites
