@@ -73,14 +73,14 @@ namespace map_maker
             
             pictureBox1.Image = drawArea;
         }
-        private void TextBoxHeight_TextChanged(object sender, EventArgs e)
-        {
-            if (int.TryParse(TextBoxHeight_TextChanged.Text, out gridhieght) == true)
-            {
-                Drawgrid();
-            }
-            TextBoxHeight_TextChanged = gridhieght.ToString();
-        }
+      // private void TextBoxHeight_TextChanged(object sender, EventArgs e)
+      // {
+      //     if (int.TryParse(TextBoxHeight_TextChanged.Text, out gridhieght) == true)
+      //     {
+      //         Drawgrid();
+      //     }
+      //     TextBoxHeight_TextChanged = gridhieght.ToString();
+      // }
 
 
         private void button1_Click(object sender, EventArgs e)
