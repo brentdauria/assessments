@@ -22,7 +22,8 @@ bool AI_projectApp::startup() {
 	// TODO: remember to change this when redistributing a build!
 	// the following path would be used instead: "./font/consolas.ttf"
 	m_font = new aie::Font("../bin/font/consolas.ttf", 32);
-	m_ant = new Ants(glm::vec2(50, 50));
+	//creates ant and sets location
+	m_ant = new Ants(glm::vec2(400, 400));
 
 
 	return true;
