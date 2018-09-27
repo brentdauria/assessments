@@ -6,6 +6,7 @@
 #include <Texture.h>
 #include <Renderer2D.h>
 
+
 AI_projectApp::AI_projectApp() {
 
 }
@@ -52,7 +53,8 @@ void AI_projectApp::draw() {
 	m_2dRenderer->begin();
 
 	// draw your stuff here!
-	m_ant->Draw(Spritebatch);
+
+	//m_ant->Draw(Spritebatch);
 	
 	// output some text, uses the last used colour
 	m_2dRenderer->drawText(m_font, "Press ESC to quit", 0, 0);

@@ -18,7 +18,9 @@ void Ants::Draw(aie::Renderer2D * spritebatch)
 
 Ants::Ants(glm::vec2 pos)
 {
-	m_texture = new aie::Texture("../bin/textures/Ant.png");
+	
+	m_texture = new aie::Texture("../bin/textures/ship.png");
+
 	
 }
 	
