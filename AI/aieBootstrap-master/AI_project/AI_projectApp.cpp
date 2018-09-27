@@ -54,7 +54,7 @@ void AI_projectApp::draw() {
 
 	// draw your stuff here!
 
-	//m_ant->Draw(Spritebatch);
+	m_ant->Draw(m_2dRenderer);
 	
 	// output some text, uses the last used colour
 	m_2dRenderer->drawText(m_font, "Press ESC to quit", 0, 0);
