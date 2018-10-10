@@ -4,7 +4,7 @@
 #include "Renderer2D.h"
 
 
-
+class Agent;
 class Ants;
 class AI_projectApp : public aie::Application {
 public:
@@ -23,4 +23,8 @@ protected:
 	aie::Renderer2D*	m_2dRenderer;
 	aie::Font*			m_font;
 	Ants* m_ant;
+	Agent*				m_testAgent;
+	aie::Texture*		m_agentTexture;
+
+	glm::vector<Agent*> agents;
 };
