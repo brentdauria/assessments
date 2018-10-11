@@ -165,19 +165,25 @@
     <ClCompile Include="Agent.cpp" />
     <ClCompile Include="AI_projectApp.cpp" />
     <ClCompile Include="Ants.cpp" />
+    <ClCompile Include="FiniteStateMachines.cpp" />
+    <ClCompile Include="FleeState.cpp" />
     <ClCompile Include="food.cpp" />
     <ClCompile Include="KeyboardController.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="SeekBehavior.cpp" />
+    <ClCompile Include="State.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Agent.h" />
     <ClInclude Include="AI_projectApp.h" />
     <ClInclude Include="Ants.h" />
+    <ClInclude Include="FiniteStateMachines.h" />
+    <ClInclude Include="FleeState.h" />
     <ClInclude Include="food.h" />
     <ClInclude Include="IBehavior.h" />
     <ClInclude Include="KeyboardController.h" />
     <ClInclude Include="SeekBehavior.h" />
+    <ClInclude Include="State.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
