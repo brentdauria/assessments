@@ -172,6 +172,7 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="SeekBehavior.cpp" />
     <ClCompile Include="State.cpp" />
+    <ClCompile Include="Wanderstate.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Agent.h" />
@@ -184,6 +185,7 @@
     <ClInclude Include="KeyboardController.h" />
     <ClInclude Include="SeekBehavior.h" />
     <ClInclude Include="State.h" />
+    <ClInclude Include="Wanderstate.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

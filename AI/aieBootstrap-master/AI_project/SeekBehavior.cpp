@@ -1,4 +1,6 @@
 #include "SeekBehavior.h"
+#include <glm/glm.hpp>
+#include <glm/ext.hpp>
 
 
 
@@ -20,10 +22,10 @@ SeekBehavior::~SeekBehavior()
 void SeekBehavior::update(float a_deltaTime, Agent * agent)
 {
 	glm::vec2 Vel = m_target->m_position - agent->m_position;
-	Vector2.normalise();
+	Vel = glm::normalize(Vel);
 	Vel = Vel * 100.0f;
 	glm::vec2 force = Vel - agent->m_velocity;
-	agent->AddForce();
+	agent->AddForce(force.x, force.y);
 
 
 }

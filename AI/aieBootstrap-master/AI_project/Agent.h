@@ -2,7 +2,7 @@
 
 #include <glm/vec2.hpp>
 #include <vector>
-#include "Vector2.h"
+//#include "Vector2.h"
 
 class IBehavior;
 class Agent
@@ -24,6 +24,6 @@ public:
 
 	float m_maxForce;
 
-	
+	std::vector<IBehavior*> behaviors;
 };
 

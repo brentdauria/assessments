@@ -3,6 +3,7 @@
 #include "Application.h"
 #include "Renderer2D.h"
 #include <glm\glm.hpp>
+#include <vector>
 
 
 class Agent;
@@ -25,7 +26,9 @@ protected:
 	aie::Font*			m_font;
 	Ants* m_ant;
 	Agent*				m_testAgent;
+	Agent*				m_otherAgent;
+	aie::Texture*		m_otherTexture;
 	aie::Texture*		m_agentTexture;
 
-	Vector<Agent*> agents;
+	std::vector<Agent*> agents;
 };
