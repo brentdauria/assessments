@@ -26,14 +26,31 @@ Wanderstate::Wanderstate(Agent * target, float wanderDistance, float wanderRadiu
 	m_target = target;
 }
 
+
+
 void Wanderstate::update(Agent * agent, FiniteStateMachines * sm, float deltaTime)
 {
-	
 	glm::vec2 circle = glm::circularRand(m_wanderRad);
-	glm::vec2 newTarget = glm::vec2();
+	glm::vec2 newTarget = glm::vec2(randomVec.x + circle.x, randomVec.y + circle.y);
+	newTarget = glm::normalize(newTarget);
 
+	
+	glm::vec2 normalisedTarget = newTarget;
+	glm::vec2 targetOnSphere = normalisedTarget * m_wanderRad;
 
+	targetOnSphere = glm::normalize(targetOnSphere);
+
+	glm::vec2 force = targetOnSphere;
+	force = force * 50.0f;
+
+	agent->AddForce(force.x, force.y);
+
+	glm::vec2 dist = m_target->m_position - agent->m_position;
+	float mag = dist.length();
+	if (mag < 100.0f)
+		sm->changeState(agent, new);
 }
+		
 
 void Wanderstate::init(Agent * agent)
 {

@@ -48,6 +48,9 @@
     <ClCompile Include="Wanderstate.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Seekstate.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AI_projectApp.h">
@@ -81,6 +84,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Wanderstate.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Seekstate.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

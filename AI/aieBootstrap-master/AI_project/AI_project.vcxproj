@@ -171,6 +171,7 @@
     <ClCompile Include="KeyboardController.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="SeekBehavior.cpp" />
+    <ClCompile Include="Seekstate.cpp" />
     <ClCompile Include="State.cpp" />
     <ClCompile Include="Wanderstate.cpp" />
   </ItemGroup>
@@ -184,6 +185,7 @@
     <ClInclude Include="IBehavior.h" />
     <ClInclude Include="KeyboardController.h" />
     <ClInclude Include="SeekBehavior.h" />
+    <ClInclude Include="Seekstate.h" />
     <ClInclude Include="State.h" />
     <ClInclude Include="Wanderstate.h" />
   </ItemGroup>
