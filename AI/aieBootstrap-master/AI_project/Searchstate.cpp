@@ -1,22 +1,23 @@
-#include "Wanderstate.h"
+#include "Searchstate.h"
 #include <glm\ext.hpp>
 #include <random>
 #include <time.h>
 #include "FiniteStateMachines.h"
 #include "SeekBehavior.h"
+#include "ChaseState.h"
 
 
 
-Wanderstate::Wanderstate()
+Searchstate::Searchstate()
 {
 }
 
 
-Wanderstate::~Wanderstate()
+Searchstate::~Searchstate()
 {
 }
 
-Wanderstate::Wanderstate(Agent * target, float wanderDistance, float wanderRadius, float jitterAmount)
+Searchstate::Searchstate(Agent * target, float wanderDistance, float wanderRadius, float jitterAmount)
 {
 
 	m_WanderDist = wanderDistance;
@@ -28,7 +29,7 @@ Wanderstate::Wanderstate(Agent * target, float wanderDistance, float wanderRadiu
 
 
 
-void Wanderstate::update(Agent * agent, FiniteStateMachines * sm, float deltaTime)
+void Searchstate::update(Agent * agent, FiniteStateMachines * sm, float deltaTime)
 {
 	glm::vec2 circle = glm::circularRand(m_wanderRad);
 	glm::vec2 newTarget = glm::vec2(randomVec.x + circle.x, randomVec.y + circle.y);
@@ -48,14 +49,14 @@ void Wanderstate::update(Agent * agent, FiniteStateMachines * sm, float deltaTim
 	glm::vec2 dist = m_target->m_position - agent->m_position;
 	float mag = dist.length();
 	if (mag < 100.0f)
-		sm->changeState(agent, new);
+	sm->changeState(agent, new ChaseState);
 }
 		
 
-void Wanderstate::init(Agent * agent)
+void Searchstate::init(Agent * agent)
 {
 }
 
-void Wanderstate::exit(Agent * agent)
+void Searchstate::exit(Agent * agent)
 {
 }

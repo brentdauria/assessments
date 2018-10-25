@@ -1,12 +1,12 @@
 #pragma once
 #include "State.h"
-class Wanderstate : public State
+class Searchstate : public State
 {
 public:
-	Wanderstate();
-	~Wanderstate();
+	Searchstate();
+	~Searchstate();
 
-	Wanderstate(Agent* target, float wanderDistance, float wanderRadius, float jitterAmount);
+	Searchstate(Agent* target, float wanderDistance, float wanderRadius, float jitterAmount);
 	virtual void update(Agent* agent, FiniteStateMachines * sm, float deltaTime);
 	//not sure of the need of the following voids
 	virtual void init(Agent* agent);

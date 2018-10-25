@@ -45,10 +45,10 @@
     <ClCompile Include="FleeState.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Wanderstate.cpp">
+    <ClCompile Include="ChaseState.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Seekstate.cpp">
+    <ClCompile Include="Searchstate.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -83,10 +83,10 @@
     <ClInclude Include="FleeState.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Wanderstate.h">
+    <ClInclude Include="ChaseState.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Seekstate.h">
+    <ClInclude Include="Searchstate.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
