@@ -9,6 +9,6 @@ public:
 	void update(float a_deltaTime, Agent* agent)override;
 
 private:
-	Agent * m_target;
+	Agent *m_target;
 };
 

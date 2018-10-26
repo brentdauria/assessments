@@ -25,8 +25,9 @@ protected:
 	aie::Renderer2D*	m_2dRenderer;
 	aie::Font*			m_font;
 	Ants* m_ant;
-	Agent*				m_testAgent;
+	Agent*				m_target;
 	Agent*				m_otherAgent;
+	Agent*				m_agent;
 	aie::Texture*		m_otherTexture;
 	aie::Texture*		m_agentTexture;
 

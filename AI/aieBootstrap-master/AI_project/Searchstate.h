@@ -17,6 +17,7 @@ private:
 	float m_wanderRad;
 	float m_JitterAmount;
 	glm::vec2 randomVec;
-	Agent * m_target;
+	//Agent *m_target = new Agent();
+	Agent *m_target;
 };
 

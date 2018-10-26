@@ -27,6 +27,7 @@ void FiniteStateMachines::PrevState(State * Prevstate)
 
 void FiniteStateMachines::changeState(Agent * Agent, State * newState)
 {
+	
 }
 
 

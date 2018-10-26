@@ -49,7 +49,7 @@ void Searchstate::update(Agent * agent, FiniteStateMachines * sm, float deltaTim
 	glm::vec2 dist = m_target->m_position - agent->m_position;
 	float mag = dist.length();
 	if (mag < 100.0f)
-	sm->changeState(agent, new ChaseState);
+		sm->changeState(agent, new ChaseState(m_target));
 }
 		
 
