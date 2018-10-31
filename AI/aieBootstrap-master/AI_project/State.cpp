@@ -6,6 +6,14 @@ State::State()
 {
 }
 
+void State::OnEnter()
+{
+}
+
+
+void State::OnExit()
+{
+}
 
 State::~State()
 {

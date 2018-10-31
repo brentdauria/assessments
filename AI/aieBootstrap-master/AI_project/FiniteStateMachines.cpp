@@ -1,4 +1,7 @@
 #include "FiniteStateMachines.h"
+#include "State.h"
+#include "Agent.h"
+
 
 
 
@@ -27,6 +30,16 @@ void FiniteStateMachines::PrevState(State * Prevstate)
 
 void FiniteStateMachines::changeState(Agent * Agent, State * newState)
 {
+	if (currentState)
+		currentState->OnExit();
+	if (newState == NULL)
+	{
+		currentState = nullptr;
+		return;
+	}
+	currentState = newState;
+	if (currentState)
+		currentState->OnEnter();
 	
 }
 

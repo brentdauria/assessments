@@ -5,6 +5,7 @@
 
 
 class IBehavior;
+class FiniteStateMachines;
 class Agent
 {
 public:
@@ -17,13 +18,15 @@ public:
 	void update(float deltaTime);
 
 	void AddBehavior(IBehavior* behavior);
-
+	void SetMachine(FiniteStateMachines* Fmachines);
+	
 	glm::vec2 m_position;
 	glm::vec2 m_velocity;
 	glm::vec2 m_acceleration;
 
 	float m_maxForce;
-
+	
+	FiniteStateMachines* FMachine;
 	std::vector<IBehavior*> behaviors;
 };
 

@@ -11,6 +11,7 @@
 #include "State.h"
 #include "ChaseState.h"
 #include "Searchstate.h"
+#include "FiniteStateMachines.h"
 
 
 
@@ -32,11 +33,13 @@ bool AI_projectApp::startup() {
 	//creates ant and sets location
 	m_ant = new Ants(glm::vec2(400, 400));
 	m_otherAgent = new Agent(500.f, 500.f);
+	//m_otherAgent->AddState(new Searchstate(m_));
 //	m_target = new Agent(500f, 500f);
 	m_target = new Agent(10.f, 10.f);
 	//m_testAgent = new Agent(500.f, 500.f);
+	m_otherAgent->
 	m_target->AddBehavior(new KeyboardController(aie::Input::getInstance()));
-	//m_testAgent->AddBehavior(new SeekBehavior(m_otherAgent));
+	m_target->AddBehavior(new SeekBehavior(m_otherAgent));
 	//m_agent->AddBehavior()
 	agents.push_back(m_target);
 	m_2dRenderer = new aie::Renderer2D();

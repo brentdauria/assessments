@@ -1,5 +1,6 @@
 #include "Agent.h"
 #include "IBehavior.h"
+#include "FiniteStateMachines.h"
 
 
 Agent::Agent()
@@ -49,4 +50,10 @@ void Agent::update(float deltaTime)
 void Agent::AddBehavior(IBehavior * behavior)
 {
 	behaviors.push_back(behavior);
+}
+
+void Agent::SetMachine(FiniteStateMachines * Fmachines)
+{
+	FMachine = new FiniteStateMachines();
+
 }

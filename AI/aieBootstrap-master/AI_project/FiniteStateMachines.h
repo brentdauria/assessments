@@ -1,5 +1,6 @@
 #pragma once
 #include "State.h"
+#include <vector>
 class FiniteStateMachines
 {
 public:
@@ -14,5 +15,6 @@ private:
 	State * currentState;
 	State * prevState;
 
+	std::vector<State*> states;
 };
 
