@@ -37,15 +37,15 @@ bool AI_projectApp::startup() {
 //	m_target = new Agent(500f, 500f);
 	m_target = new Agent(10.f, 10.f);
 	//m_testAgent = new Agent(500.f, 500.f);
-	m_otherAgent->
+	//m_otherAgent->
 	m_target->AddBehavior(new KeyboardController(aie::Input::getInstance()));
 	m_target->AddBehavior(new SeekBehavior(m_otherAgent));
 	//m_agent->AddBehavior()
 	agents.push_back(m_target);
 	m_2dRenderer = new aie::Renderer2D();
-	m_font = new aie::Font("./font/consolas.ttf", 32);
-	m_agentTexture = new aie::Texture("./textures/car.png");
-	m_otherTexture = new aie::Texture("./textures/ant.png");
+	m_font = new aie::Font("../bin/font/consolas.ttf", 32);
+	m_agentTexture = new aie::Texture("../bin/textures/car.png");
+	m_otherTexture = new aie::Texture("../bin/textures/ant.png");
 	return true;
 
 

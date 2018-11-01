@@ -182,7 +182,6 @@
     <ClInclude Include="ChaseState.h" />
     <ClInclude Include="FiniteStateMachines.h" />
     <ClInclude Include="FleeState.h" />
-    <ClInclude Include="food.h" />
     <ClInclude Include="IBehavior.h" />
     <ClInclude Include="KeyboardController.h" />
     <ClInclude Include="SeekBehavior.h" />

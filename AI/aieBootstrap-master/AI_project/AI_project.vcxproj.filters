@@ -59,9 +59,6 @@
     <ClInclude Include="Ants.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="food.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Agent.h">
       <Filter>Header Files</Filter>
     </ClInclude>
