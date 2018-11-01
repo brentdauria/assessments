@@ -2,6 +2,7 @@
 #include <glm/glm.hpp>
 #include <glm/ext.hpp>
 #include "IBehavior.h"
+#include "Searchstate.h"
 
 
 
@@ -17,6 +18,11 @@ void ChaseState::Update(Agent * Agent, float deltaTime, FiniteStateMachines * sm
 	Vel = Vel * 100.0f;
 	glm::vec2 force = Vel - Agent->m_velocity;
 	Agent->AddForce(force.x, force.y);
+
+	glm::vec2 dist = m_target->m_position - Agent->m_position;
+	float mag = glm::length(dist);
+	if (mag > 100.0f)
+		sm->changeState(Agent, new Searchstate(m_target, 5.0f, 25.0f, 10.0f));
 }
 
 void ChaseState::OnExit()

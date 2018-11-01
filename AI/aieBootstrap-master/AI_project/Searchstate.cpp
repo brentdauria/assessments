@@ -29,11 +29,11 @@ Searchstate::Searchstate(Agent * target, float wanderDistance, float wanderRadiu
 
 
 
-void Searchstate::update(Agent * agent, FiniteStateMachines * sm, float deltaTime)
+void Searchstate::Update(Agent* agent, float deltaTime, FiniteStateMachines* sm)
 {
 	glm::vec2 circle = glm::circularRand(m_wanderRad);
 	glm::vec2 newTarget = glm::vec2(randomVec.x + circle.x, randomVec.y + circle.y);
-	newTarget = glm::normalize(newTarget);
+	newTarget = glm:: normalize(newTarget);
 
 	
 	glm::vec2 normalisedTarget = newTarget;
@@ -47,16 +47,16 @@ void Searchstate::update(Agent * agent, FiniteStateMachines * sm, float deltaTim
 	agent->AddForce(force.x, force.y);
 
 	glm::vec2 dist = m_target->m_position - agent->m_position;
-	float mag = dist.length();
+	float mag = glm::length(dist);
 	if (mag < 100.0f)
 		sm->changeState(agent, new ChaseState(m_target));
 }
 		
 
-void Searchstate::init(Agent * agent)
+void Searchstate::OnEnter(Agent * agent)
 {
 }
 
-void Searchstate::exit(Agent * agent)
+void Searchstate::OnExit(Agent * agent)
 {
 }

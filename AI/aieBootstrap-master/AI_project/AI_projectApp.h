@@ -5,7 +5,7 @@
 #include <glm\glm.hpp>
 #include <vector>
 
-
+class FiniteStateMachines;
 class Agent;
 class Ants;
 class AI_projectApp : public aie::Application {
@@ -30,6 +30,7 @@ protected:
 	Agent*				m_agent;
 	aie::Texture*		m_otherTexture;
 	aie::Texture*		m_agentTexture;
+	FiniteStateMachines*	m_fsm;
 
 	std::vector<Agent*> agents;
 };

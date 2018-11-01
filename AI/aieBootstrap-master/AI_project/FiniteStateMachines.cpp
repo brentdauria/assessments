@@ -7,6 +7,8 @@
 
 FiniteStateMachines::FiniteStateMachines()
 {
+	currentState = nullptr;
+	prevState = nullptr;
 }
 
 void FiniteStateMachines::SetCurrentState(State * currentState)
@@ -38,6 +40,7 @@ void FiniteStateMachines::changeState(Agent * Agent, State * newState)
 		return;
 	}
 	currentState = newState;
+	prevState = currentState;
 	if (currentState)
 		currentState->OnEnter();
 	

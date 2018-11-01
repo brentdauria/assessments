@@ -17,7 +17,7 @@ Agent::Agent(float a_positionX, float a_positionY)
 	m_acceleration = glm::vec2(0, 0);
 
 	m_maxForce = 0.1f;
-
+	FMachine = nullptr;
 }
 
 
@@ -41,9 +41,14 @@ void Agent::update(float deltaTime)
 	m_velocity += m_acceleration * deltaTime;
 
 	m_acceleration = glm::vec2(0, 0);
-
-	for (auto iter = behaviors.begin(); iter != behaviors.end(); ++iter)
-		(*iter)->update(deltaTime, this);
+	if (behaviors.size() > 0)
+	{
+		for (auto iter = behaviors.begin(); iter != behaviors.end(); ++iter)
+			(*iter)->update(deltaTime, this);
+	}
+	if (FMachine != nullptr) {
+		FMachine->Update(deltaTime, this);
+	}
 
 }
 
@@ -54,6 +59,6 @@ void Agent::AddBehavior(IBehavior * behavior)
 
 void Agent::SetMachine(FiniteStateMachines * Fmachines)
 {
-	FMachine = new FiniteStateMachines();
+	FMachine = Fmachines;
 
 }

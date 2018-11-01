@@ -33,15 +33,19 @@ bool AI_projectApp::startup() {
 	//creates ant and sets location
 	m_ant = new Ants(glm::vec2(400, 400));
 	m_otherAgent = new Agent(500.f, 500.f);
+	
 	//m_otherAgent->AddState(new Searchstate(m_));
 //	m_target = new Agent(500f, 500f);
 	m_target = new Agent(10.f, 10.f);
 	//m_testAgent = new Agent(500.f, 500.f);
 	//m_otherAgent->
-	m_target->AddBehavior(new KeyboardController(aie::Input::getInstance()));
-	m_target->AddBehavior(new SeekBehavior(m_otherAgent));
+	m_otherAgent->AddBehavior(new KeyboardController(aie::Input::getInstance()));
+	m_fsm = new FiniteStateMachines();
+	m_fsm->SetCurrentState(new Searchstate(m_otherAgent, 5.0f, 25.0f, 10.0f));
+	m_target->SetMachine(m_fsm);
 	//m_agent->AddBehavior()
 	agents.push_back(m_target);
+	agents.push_back(m_otherAgent);
 	m_2dRenderer = new aie::Renderer2D();
 	m_font = new aie::Font("../bin/font/consolas.ttf", 32);
 	m_agentTexture = new aie::Texture("../bin/textures/car.png");

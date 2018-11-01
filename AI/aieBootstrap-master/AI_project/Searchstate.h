@@ -7,10 +7,10 @@ public:
 	~Searchstate();
 
 	Searchstate(Agent* target, float wanderDistance, float wanderRadius, float jitterAmount);
-	virtual void update(Agent* agent, FiniteStateMachines * sm, float deltaTime);
+	virtual void Update(Agent* Agent, float deltaTime, FiniteStateMachines* sm);
 	//not sure of the need of the following voids
-	virtual void init(Agent* agent);
-	virtual void exit(Agent* agent);
+	virtual void OnEnter(Agent* agent);
+	virtual void OnExit(Agent* agent);
 
 private:
 	float m_WanderDist;

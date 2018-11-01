@@ -169,6 +169,9 @@
     <ClCompile Include="FiniteStateMachines.cpp" />
     <ClCompile Include="FleeState.cpp" />
     <ClCompile Include="food.cpp" />
+    <ClCompile Include="graph.cpp" />
+    <ClCompile Include="graphEdge.cpp" />
+    <ClCompile Include="Graphnode.cpp" />
     <ClCompile Include="KeyboardController.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="SeekBehavior.cpp" />
@@ -182,6 +185,9 @@
     <ClInclude Include="ChaseState.h" />
     <ClInclude Include="FiniteStateMachines.h" />
     <ClInclude Include="FleeState.h" />
+    <ClInclude Include="graph.h" />
+    <ClInclude Include="graphEdge.h" />
+    <ClInclude Include="Graphnode.h" />
     <ClInclude Include="IBehavior.h" />
     <ClInclude Include="KeyboardController.h" />
     <ClInclude Include="SeekBehavior.h" />
