@@ -41,7 +41,7 @@ bool AI_projectApp::startup() {
 	//m_otherAgent->
 	m_otherAgent->AddBehavior(new KeyboardController(aie::Input::getInstance()));
 	m_fsm = new FiniteStateMachines();
-	m_fsm->SetCurrentState(new Searchstate(m_otherAgent, 5.0f, 25.0f, 10.0f));
+	m_fsm->SetCurrentState(new Searchstate(m_otherAgent, 15.0f, 25.0f, 25.0f));
 	m_target->SetMachine(m_fsm);
 	//m_agent->AddBehavior()
 	agents.push_back(m_target);
